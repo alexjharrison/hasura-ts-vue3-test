@@ -1,30 +1,17 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
+  <header class="p-4 text-3xl bg-blue-400">My Cool Todo App</header>
   <router-view />
+  <footer
+    class="p-4 mt-auto text-xl text-center bg-gray-200 border-t border-gray-300"
+  >
+    &copy; {{ new Date().getFullYear() }}
+  </footer>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script setup lang="ts">
+import { DefaultApolloClient } from "@vue/apollo-composable";
+import { provide } from "vue";
+import { apolloClient } from "./config/apolloClient";
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+provide(DefaultApolloClient, apolloClient);
+</script>
