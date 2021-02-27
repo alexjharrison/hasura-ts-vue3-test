@@ -1,6 +1,8 @@
 <template>
-  <header class="p-4 text-3xl bg-blue-400">My Cool Todo App</header>
-  <router-view />
+  <app-header />
+  <main class="mx-auto max-w-7xl">
+    <router-view />
+  </main>
   <footer
     class="p-4 mt-auto text-xl text-center bg-gray-200 border-t border-gray-300"
   >
@@ -8,10 +10,18 @@
   </footer>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
 import { DefaultApolloClient } from "@vue/apollo-composable";
-import { provide } from "vue";
+import { defineComponent, provide } from "vue";
 import { apolloClient } from "./config/apolloClient";
+import AppHeader from "@/components/AppHeader.vue";
+import { useUser } from "./composables/useUser";
 
-provide(DefaultApolloClient, apolloClient);
+export default defineComponent({
+  components: { AppHeader },
+  setup() {
+    provide(DefaultApolloClient, apolloClient);
+    useUser();
+  }
+});
 </script>

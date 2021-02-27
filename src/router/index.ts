@@ -1,3 +1,5 @@
+import { useUser } from "@/composables/useUser";
+import { watch } from "vue";
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 const routes: Array<RouteRecordRaw> = [
@@ -17,7 +19,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("../views/Admin.vue")
   },
   {
-    path: "/todos",
+    path: "/",
     name: "ViewTodos",
     component: () => import("../views/ViewTodos.vue")
   },
@@ -36,11 +38,6 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
-});
-
-router.beforeEach((to, from, next) => {
-  console.log({ to, from, next });
-  next();
 });
 
 export default router;
