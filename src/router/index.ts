@@ -40,4 +40,21 @@ const router = createRouter({
   routes
 });
 
+router.beforeEach((to, from, next) => {
+  const isLoggedIn = localStorage.getItem("user_id");
+  const isLoginOrRegister =
+    to.fullPath === "/login" || to.fullPath === "/register";
+
+  console.log(isLoggedIn);
+
+  if (to.name === "NotFound") next();
+  else if (isLoggedIn && isLoginOrRegister) {
+    next("/");
+  } else if (!isLoggedIn && !isLoginOrRegister) {
+    next("/login");
+  } else {
+    next();
+  }
+});
+
 export default router;

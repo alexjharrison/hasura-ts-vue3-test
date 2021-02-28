@@ -1,7 +1,7 @@
 <template>
   <form
     @submit.prevent="handleSubmit"
-    class="flex flex-col max-w-2xl px-12 py-5 mx-auto my-8 text-center border border-black rounded bg-blue-50"
+    class="flex flex-col max-w-lg px-12 py-5 mx-auto my-8 text-center border border-black rounded bg-blue-50"
   >
     <slot name="header" />
     <label v-for="field in fields" :key="field.name">

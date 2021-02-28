@@ -1,6 +1,6 @@
 <template>
   <app-header />
-  <main class="mx-auto max-w-7xl">
+  <main class="w-full p-4 mx-auto max-w-7xl">
     <router-view />
   </main>
   <footer
