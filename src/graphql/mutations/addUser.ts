@@ -6,8 +6,12 @@ export interface AddUserPayload {
   password: string;
 }
 
-export const addUserMutation = gql(`mutation AddUser($email: String!, $name: String!, $password: String!) {
-    insert_user_one(object: {email: $email, name: $name, password: $password}) {
+export const addUserMutation = gql`
+  mutation AddUser($email: String!, $name: String!, $password: String!) {
+    insert_user_one(
+      object: { email: $email, name: $name, password: $password }
+    ) {
       id
     }
-  }`);
+  }
+`;

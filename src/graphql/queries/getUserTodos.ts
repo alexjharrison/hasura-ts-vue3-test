@@ -1,6 +1,7 @@
 import gql from "graphql-tag";
 
-export const getUserTodosQuery = gql(`query GetUserTodos($id:uuid!) {
+export const getUserTodosQuery = gql`
+  query GetUserTodos($id: uuid!) {
     user_by_pk(id: $id) {
       todos {
         created_at
@@ -15,4 +16,4 @@ export const getUserTodosQuery = gql(`query GetUserTodos($id:uuid!) {
       name
     }
   }
-`);
+`;
