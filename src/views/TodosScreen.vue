@@ -35,10 +35,10 @@ export default defineComponent({
     const { user } = useUser();
 
     const completedTodos = computed(() =>
-      user.value.todos.filter(todo => todo.is_completed)
+      user.value?.todos.filter(todo => todo.is_completed)
     );
     const incompleteTodos = computed(() =>
-      user.value.todos.filter(todo => !todo.is_completed)
+      user.value?.todos.filter(todo => !todo.is_completed)
     );
 
     return { completedTodos, incompleteTodos };
